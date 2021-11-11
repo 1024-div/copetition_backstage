@@ -22,4 +22,8 @@ li {
 a {
   text-decoration: none;
 }
+.el-picker__popper {
+  z-index: 99999 !important;
+}
+
 </style>

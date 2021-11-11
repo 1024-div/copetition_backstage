@@ -25,7 +25,17 @@
           <i class="el-icon-mobile-phone"></i>
           头像
         </template>
-        <el-avatar :size="50" :src="circleUrl"></el-avatar>
+        <el-avatar v-if="!ismodify" :size="80" :src="circleUrl"></el-avatar>
+        <el-upload
+            v-if="ismodify"
+            class="upload-demo"
+            action="https://jsonplaceholder.typicode.com/posts/"
+            :on-change="handleChange"
+            :file-list="fileList"
+        >
+          <el-avatar :size="80" :src="circleUrl">
+          </el-avatar>
+        </el-upload>
       </el-descriptions-item>
       <el-descriptions-item>
         <template #label>
@@ -77,11 +87,13 @@
 </template>
 
 <script>
+import circleUrl from '@/assets/image/login.jpg'
 export default {
   name: "CpeUser",
   data(){
     return {
       ismodify: false,
+      circleUrl,
       form: {
         name: '社团/组织名称',
         address: '安徽滁州',

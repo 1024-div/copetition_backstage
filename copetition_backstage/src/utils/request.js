@@ -3,7 +3,7 @@ import axios from "axios"
 import qs from "qs"
 
 const request = axios.create({
-    baseURL: 'api',
+    baseURL: '/api',
     timeout: 5000
 })
 
